@@ -1,7 +1,26 @@
 :root {
-  font-family: sans-serif;
+  --red: #6B0504;
+  --black: #333;
+  --white: white;
+  
+  --text: var(--black);
+  --body: var(--white);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: var(--white);
+    --body: var(--black);
+  }
+}
+
+span {
+  font-family: 'Caveat', cursive;
 }
 
 input {
   font-size: 16px;
+  color: var(--black);
+  border-color: currentColor;
+  font-family: 'M PLUS 1', sans-serif;
 }

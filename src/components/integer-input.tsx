@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef, useRef, useState } from "react";
+import { ComponentPropsWithoutRef, forwardRef, useState } from "react";
 import { Override } from "../types";
 
 type IntegerProps = {
@@ -50,12 +50,3 @@ export const IntegerInput = forwardRef<HTMLInputElement, IntegerInputProps>(
 		)
 	}
 )
-
-function UseCase() {
-	const ref = useRef<HTMLInputElement>(null)
-	const [val, setVal] = useState<number | null>(null)
-
-	return (
-		<IntegerInput ref={ref} value={val} onChange={setVal} />
-	)
-}
