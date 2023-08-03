@@ -29,6 +29,12 @@ body {
   font-family: var(--sans-serif);
 }
 
+.padding {
+	box-sizing: border-box;
+	padding: var(--spacing);
+	height: 100%;
+}
+
 .blacken {
   background-color: rgba(0, 0, 0, 0.1);
 }
