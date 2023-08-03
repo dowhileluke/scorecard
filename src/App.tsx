@@ -8,20 +8,13 @@ export function App() {
   const { isInverted } = settings
 
   return (
-    <Viewport className="blacken">
-      {/* <Layout
-        className="blacken"
-        top={topGrid}
-        bot={<div>bot</div>}
-      /> */}
-      <Grid fullHeight templateRows="1fr auto">
-        <Grid templateCols="1fr auto 1fr">
-          <Player name={isInverted ? settings.p2 : settings.p1} isFirst />
-          <div style={{ width: '1rem', }} />
-          <Player name={isInverted ? settings.p1 : settings.p2} />
-        </Grid>
-        buttons
+    <Grid className="viewport" templateRows="1fr auto">
+      <Grid templateCols="1fr auto 1fr">
+        <Player name={isInverted ? settings.p2 : settings.p1} isFirst />
+        <div style={{ width: '1rem', }} />
+        <Player name={isInverted ? settings.p1 : settings.p2} />
       </Grid>
-    </Viewport>
+      <div>buttons</div>
+    </Grid>
   )
 }
