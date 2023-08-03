@@ -1,0 +1,8 @@
+.viewport {
+	box-sizing: border-box;
+	max-width: var(--max-width);
+	padding: var(--spacing);
+	height: 100vh;
+	height: -webkit-fill-available;
+	margin: 0 auto;
+}

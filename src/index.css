@@ -5,13 +5,32 @@
   
   --text: var(--black);
   --body: var(--white);
+
+  --spacing: 8px;
+  --max-width: 800px;
+
+  --base-size: 1rem;
+  --sans-serif: 'M PLUS 1', sans-serif;
+  --cursive: 'Caveat', cursive;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --text: var(--white);
     --body: var(--black);
   }
+} */
+
+body {
+  margin: 0;
+  background-color: var(--body);
+  color: var(--text);
+  font-size: var(--base-size);
+  font-family: var(--sans-serif);
+}
+
+.blacken {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 span {
