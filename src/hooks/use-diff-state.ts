@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useForever } from './useForever'
+import { useForever } from './use-forever'
 
 export function useDiffState<T>(initialState: T | (() => T)) {
 	const [state, setState] = useState(initialState)

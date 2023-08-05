@@ -1,4 +1,15 @@
 .grid {
 	display: grid;
+}
+
+.inline {
+	display: inline-grid;
+}
+
+.middle {
+	align-items: center;
+}
+
+.tall {
 	height: 100%;
 }

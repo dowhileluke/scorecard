@@ -3,7 +3,7 @@ import { AppSettings } from '../types'
 const SETTINGS_KEY = 'settings'
 const DEFAULT_SETTINGS: AppSettings = {
 	p1: 'Player One',
-	p2: 'Player Two has a much longer name, like super crazy long',
+	p2: 'Player Two', // has a much longer name, like super crazy long',
 	isInverted: false,
 }
 

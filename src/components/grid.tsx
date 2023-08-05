@@ -1,24 +1,35 @@
-import { CSSProperties, PropsWithChildren } from 'react'
+import { CSSProperties, ComponentPropsWithoutRef } from 'react'
 import classes from './grid.module.css'
-import { ClassNamed } from '../types';
-import { merge } from '../functions/merge';
+import { merge, mergeStyles } from '../functions/merge';
 
 type GridProps = {
+	centered?: boolean;
 	fullHeight?: boolean;
-	templateCols?: string;
-	templateRows?: string;
+	gap?: CSSProperties['gap'];
+	inline?: boolean;
+	templateCols?: CSSProperties['gridTemplateColumns'];
+	templateRows?: CSSProperties['gridTemplateRows'];
 }
 
-export function Grid({ fullHeight = false, templateCols, templateRows, className, children }: PropsWithChildren<GridProps & ClassNamed>) {
+export function Grid({
+	centered = false, fullHeight = false, gap, inline = false, templateCols, templateRows, className, style, ...props
+}: GridProps & ComponentPropsWithoutRef<'div'>) {
 	const gridStyle: CSSProperties = {}
 
-	if (fullHeight) gridStyle.height = '100%'
+	if (gap) gridStyle.gap = gap;
 	if (templateCols) gridStyle.gridTemplateColumns = templateCols
 	if (templateRows) gridStyle.gridTemplateRows = templateRows
 
 	return (
-		<div className={merge(classes.grid, className)} style={gridStyle}>
-			{children}
-		</div>
+		<div
+			className={merge(
+				centered && classes.middle,
+				fullHeight && classes.tall,
+				inline ? classes.inline : classes.grid,
+				className
+			)}
+			style={mergeStyles(gridStyle, style)}
+			{...props}
+		/>
 	)
 }

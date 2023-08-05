@@ -1,0 +1,6 @@
+.button {
+	font-size: inherit;
+	border: 1px solid currentColor;
+	border-radius: 6px;
+	background-color: var(--body);
+}

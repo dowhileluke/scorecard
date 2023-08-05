@@ -1,7 +1,7 @@
 import { getSettings, setSettings as setLocalSettings } from '../functions/settings'
-import { useForever } from './useForever'
+import { useForever } from './use-forever'
 import { AppSettings } from '../types'
-import { useDiffState } from './useDiffState'
+import { useDiffState } from './use-diff-state'
 
 type SettingsDiff = Partial<AppSettings> | ((settings: AppSettings) => Partial<AppSettings>)
 

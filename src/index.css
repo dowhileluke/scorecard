@@ -1,17 +1,19 @@
 :root {
-  --red: #6B0504;
-  --black: #333;
-  --white: white;
-  
-  --text: var(--black);
-  --body: var(--white);
+	--red: #6b0504;
+	--black: #333;
+	--gray: #aaa;
+	--white: white;
 
-  --spacing: 8px;
-  --max-width: 800px;
+	--text: var(--black);
+	--body: var(--white);
 
-  --base-size: 1rem;
-  --sans-serif: 'M PLUS 1', sans-serif;
-  --cursive: 'Caveat', cursive;
+	--spacing: 0.5rem;
+	--max-width: 800px;
+
+	--base-size: 1rem;
+	--default-pencil-size: 0.5rem;
+	--sans-serif: 'M PLUS 1', sans-serif;
+	--cursive: 'Caveat', cursive;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -22,17 +24,20 @@
 } */
 
 body {
-  margin: 0;
-  background-color: var(--body);
-  color: var(--text);
-  font-size: var(--base-size);
-  font-family: var(--sans-serif);
+	margin: 0;
+	background-color: var(--body);
+	color: var(--text);
+	font-size: var(--base-size);
+	font-family: var(--sans-serif);
 }
 
-.viewport {
-	max-width: var(--max-width);
+.viewport, .viewport-height {
 	height: 100vh;
 	height: -webkit-fill-available;
+}
+
+.viewport, .viewport-width {
+	max-width: var(--max-width);
 	margin: 0 auto;
 }
 
@@ -43,16 +48,12 @@ body {
 }
 
 .blacken {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-span {
-  font-family: 'Caveat', cursive;
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 input {
-  font-size: 16px;
-  color: var(--black);
-  border-color: currentColor;
-  font-family: 'M PLUS 1', sans-serif;
+	font-size: 16px;
+	color: var(--black);
+	border-color: currentColor;
+	font-family: 'M PLUS 1', sans-serif;
 }

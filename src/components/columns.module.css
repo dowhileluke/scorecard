@@ -1,0 +1,17 @@
+.container {
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+	padding: var(--spacing);
+}
+
+.side {
+	flex-grow: 1;
+
+	/* TODO: remove bg color */
+	background-color: azure;
+}
+
+.gap {
+	width: var(--spacing);
+}

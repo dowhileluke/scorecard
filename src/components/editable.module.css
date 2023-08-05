@@ -1,0 +1,16 @@
+.container {
+	cursor: pointer;
+}
+
+.mid {
+	grid-column-start: 2;
+}
+
+.container svg {
+	display: block;
+	visibility: hidden;
+}
+
+.container:hover svg {
+	visibility: visible;
+}
