@@ -1,5 +1,5 @@
 import { CSSProperties, ComponentPropsWithoutRef } from "react"
-import classes from './button.module.css'
+import classes from './interactive.module.css'
 import { merge, mergeStyles } from "../functions/merge"
 
 type Colored = {

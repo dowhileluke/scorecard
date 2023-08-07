@@ -2,6 +2,10 @@
 	display: grid;
 }
 
+.gap {
+	gap: var(--spacing);
+}
+
 .inline {
 	display: inline-grid;
 }

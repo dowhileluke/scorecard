@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from "react";
-import classes from './input.module.css'
+import classes from './interactive.module.css'
 import { merge } from "../functions/merge";
 
 function InputWithRef(

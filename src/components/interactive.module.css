@@ -1,0 +1,19 @@
+.button, .input {
+	font-size: inherit;
+	border: 1px solid currentColor;
+	background-color: var(--body);
+	padding: var(--spacing);
+}
+
+.button {
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.button:active {
+	color: var(--gray);
+}
+
+.input {
+	border-radius: 2px;
+}
