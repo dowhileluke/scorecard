@@ -3,9 +3,15 @@
 	box-sizing: border-box;
 	font-size: inherit;
 	font-family: inherit;
+	color: inherit;
 	background-color: var(--body);
 	border: 2px solid currentColor;
 	padding: 2px var(--spacing);
+}
+
+.button:disabled, .input:disabled {
+	color: var(--gray);
+	opacity: 0.8;
 }
 
 .button {

@@ -1,6 +1,5 @@
 .container div:not(:last-child) {
 	color: var(--gray);
-	text-decoration: line-through;
 }
 
 .total {

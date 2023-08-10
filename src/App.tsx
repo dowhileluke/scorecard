@@ -128,12 +128,14 @@ export function App() {
 						</div>
 					))}
 				</div>
-				<Button onClick={handleAdd}>
-					<Plus size="1em" />
-				</Button>
-				<Button type="submit" disabled={!pendingSum}>
-					Submit {pendingSum} {pendingSum === 1 ? 'Point' : 'Points'}
-				</Button>
+				<div style={{ padding: '8px' }}>
+					<Button isIcon onClick={handleAdd}>
+						<Plus size="1em" />
+					</Button>
+					<Button type="submit" disabled={!pendingSum} >
+						Submit {pendingSum} {pendingSum === 1 ? 'Point' : 'Points'}
+					</Button>
+				</div>
 			</form>
 		</Grid>
 	)

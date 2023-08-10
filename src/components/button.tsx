@@ -13,7 +13,7 @@ export function Button({
 	return (
 		<button
 			className={merge(classes.button, isIcon && classes.icon, className)}
-			style={mergeStyles({ color }, style)}
+			style={mergeStyles(color && { color }, style)}
 			type="button"
 			{...props}
 		/>
