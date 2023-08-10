@@ -1,0 +1,39 @@
+.container {
+	display: inline-grid;
+	cursor: pointer;
+}
+
+.over, .under {
+	grid-area: 1 / 1 / 2 / 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.over {
+	visibility: hidden;
+	z-index: 1;
+}
+
+.container:hover .under {
+	transition-property: opacity;
+	animation: pulse 2s infinite;
+}
+
+.container:hover .over {
+	visibility: visible;
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 0.1;
+	}
+
+	50% {
+		opacity: 0.3;
+	}
+
+	100% {
+		opacity: 0.1;
+	}
+}

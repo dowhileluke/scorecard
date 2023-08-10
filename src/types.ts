@@ -4,6 +4,13 @@ export type ClassNamed = {
 	className?: string;
 }
 
+export type Player = {
+	id: number;
+	name: string;
+}
+
+export type ScoreState = Record<number, number[]>
+
 export type AppSettings = {
 	p1: string;
 	p2: string;

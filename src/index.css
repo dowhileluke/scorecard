@@ -1,7 +1,7 @@
 :root {
 	--red: #6b0504;
 	--black: #333;
-	--gray: #aaa;
+	--gray: #999;
 	--white: white;
 
 	--text: var(--black);
@@ -10,11 +10,15 @@
 	--spacing: 0.5rem;
 	--max-width: 800px;
 
-	--base-size: 1rem;
-	--default-pencil-size: 0.5rem;
-	--sans-serif: 'M PLUS 1', sans-serif;
-	--cursive: 'Caveat', cursive;
+	--col: 6ch;
+	--col-gap: 16px;
+
+	--base-size: 16px;
+	--font-plain: sans-serif;
+	--font-fancy: 'Caveat', cursive;
 }
+
+/* --font-plain: 'M PLUS 1', sans-serif; */
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -28,7 +32,7 @@ body {
 	background-color: var(--body);
 	color: var(--text);
 	font-size: var(--base-size);
-	font-family: var(--sans-serif);
+	font-family: var(--font-plain);
 }
 
 .viewport, .viewport-height {
@@ -41,12 +45,40 @@ body {
 	margin: 0 auto;
 }
 
-.padding {
-	box-sizing: border-box;
-	padding: var(--spacing);
-	height: 100%;
-}
-
 .darken {
 	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.col-group {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	max-width: 100vw;
+	gap: var(--col-gap);
+}
+
+.col {
+	text-align: center;
+	flex: 0 1 auto;
+	overflow-x: hidden;
+	overflow-y: visible;
+	min-width: var(--col);
+}
+
+.score {
+	text-align: center;
+	max-width: 6ch;
+}
+
+.label {
+	font: 32px var(--font-fancy);
+	text-decoration: underline;
+	padding: 0 2px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.label.hidden {
+	height: 0;
+	visibility: hidden;
 }

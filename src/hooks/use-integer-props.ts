@@ -8,7 +8,7 @@ export type IntegerProps = {
 type InputProps = {
 	value: string;
 	onChange: ChangeEventHandler<HTMLInputElement>,
-	inputMode: 'decimal';
+	inputMode: 'numeric';
 }
 
 const nonDigits = /\D/g
@@ -45,7 +45,7 @@ export function useIntegerProps<T extends IntegerProps>({ value, onChange, ...pr
 		...props,
 		value: toTextValue(value, isNakedMinus),
 		onChange: handleChange,
-		inputMode: 'decimal',
+		inputMode: 'numeric',
 	}
 
 	return result

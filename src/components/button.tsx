@@ -2,16 +2,17 @@ import { CSSProperties, ComponentPropsWithoutRef } from "react"
 import classes from './interactive.module.css'
 import { merge, mergeStyles } from "../functions/merge"
 
-type Colored = {
+type ButtonProps = {
+	isIcon?: boolean;
 	color?: CSSProperties['color']
 }
 
 export function Button({
-	color, className, style, ...props
-}: Colored & ComponentPropsWithoutRef<'button'>) {
+	color, isIcon = false, className, style, ...props
+}: ButtonProps & ComponentPropsWithoutRef<'button'>) {
 	return (
 		<button
-			className={merge(classes.button, className)}
+			className={merge(classes.button, isIcon && classes.icon, className)}
 			style={mergeStyles({ color }, style)}
 			type="button"
 			{...props}

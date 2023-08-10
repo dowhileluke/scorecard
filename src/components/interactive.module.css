@@ -1,8 +1,11 @@
 .button, .input {
+	display: inline-block;
+	box-sizing: border-box;
 	font-size: inherit;
-	border: 1px solid currentColor;
+	font-family: inherit;
 	background-color: var(--body);
-	padding: var(--spacing);
+	border: 2px solid currentColor;
+	padding: 2px var(--spacing);
 }
 
 .button {
@@ -14,6 +17,11 @@
 	color: var(--gray);
 }
 
+.icon.button svg {
+	display: block;
+}
+
 .input {
-	border-radius: 2px;
+	border-radius: 3px;
+	padding: 2px 4px;
 }
