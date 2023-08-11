@@ -1,28 +1,33 @@
-import { ReactNode } from 'react';
-import { signed } from '../functions/signed';
+import { useEffect, useRef } from 'react'
+import { sum } from '@dowhileluke/fns'
+import { signed } from '../functions/signed'
 import classes from './score-table.module.css'
-import { Editable2 } from './editable2';
-import { sum } from '@dowhileluke/fns';
+import { Editable2 } from './editable2'
 
 type ScoreTableProps = {
-	scores: number[];
+	points: number[];
 	onClick?: (index: number) => void;
 }
 
-export function ScoreTable({ scores, onClick }: ScoreTableProps) {
-	let total = sum(scores)
+export function ScoreTable({ points, onClick }: ScoreTableProps) {
+	const totalRef = useRef<HTMLDivElement>(null)
+
+	useEffect(() => {
+		totalRef.current?.scrollIntoView(false)
+	}, [points])
 
 	return (
 		<div className={classes.container}>
-			{scores.map((s, index) => (
-				<div key={index}>
-					<Editable2
-						value={signed(s)}
-						onClick={() => onClick?.(index)}
-					/>
-				</div>
+			{points.map((s, index) => (
+				<Editable2
+					key={index}
+					value={signed(s)}
+					onClick={() => onClick?.(index)}
+				/>
 			))}
-			<div className={scores.length ? classes.total : ''}>{total}</div>
+			<div ref={totalRef} className={points.length ? classes.total : ''}>
+				{sum(points)}
+			</div>
 		</div>
 	)
 }

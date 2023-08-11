@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react'
+import './app.css'
 import { Grid } from './components/grid'
 import { Editable2 } from './components/editable2'
 import { usePlayers } from './hooks/use-players'

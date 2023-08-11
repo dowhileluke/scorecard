@@ -1,3 +1,11 @@
+.container {
+	flex: 1 1 auto;
+	overflow-y: auto;
+
+	display: flex;
+	flex-direction: column;
+}
+
 .container div:not(:last-child) {
 	color: var(--gray);
 }
@@ -7,4 +15,5 @@
 	margin: 0 auto;
 	padding: 2px 0.5em;
 	border-top: 1px solid var(--gray);
+	font-weight: bold;
 }
