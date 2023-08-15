@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { sum } from '@dowhileluke/fns'
 import { signed } from '../functions/signed'
 import classes from './score-table.module.css'
-import { Editable2 } from './editable2'
+import { Editable } from './editable'
 
 type ScoreTableProps = {
 	points: number[];
@@ -17,15 +17,13 @@ export function ScoreTable({ points, onClick }: ScoreTableProps) {
 	}, [points])
 
 	return (
-		<div className={classes.container}>
+		<div className={classes.list}>
 			{points.map((s, index) => (
-				<Editable2
-					key={index}
-					value={signed(s)}
-					onClick={() => onClick?.(index)}
-				/>
+				<Editable key={index} onClick={() => onClick?.(index)}>
+					{signed(s)}
+				</Editable>
 			))}
-			<div ref={totalRef} className={points.length ? classes.total : ''}>
+			<div ref={totalRef} className={points.length ? classes.sum : ''}>
 				{sum(points)}
 			</div>
 		</div>

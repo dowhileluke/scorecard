@@ -4,8 +4,8 @@ const SETTINGS_KEY = 'settings'
 const DEFAULT_PLAYERS: Player[] = [
 	{ id: 1, name: 'Player 1' },
 	{ id: 2, name: 'Player 2' },
-	{ id: 3, name: 'C' },
-	{ id: 4, name: 'ddddd' },
+	// { id: 3, name: 'C' },
+	// { id: 4, name: 'ddddd' },
 	// { id: 2, name: 'Player 2 has a much longer name, like super crazy long' },
 ]
 

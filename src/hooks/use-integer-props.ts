@@ -7,7 +7,7 @@ export type IntegerProps = {
 
 type InputProps = {
 	value: string;
-	onChange: ChangeEventHandler<HTMLInputElement>,
+	onChange: ChangeEventHandler<HTMLInputElement>;
 	inputMode: 'numeric';
 }
 

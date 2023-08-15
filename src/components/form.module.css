@@ -1,0 +1,29 @@
+.form {
+	display: grid;
+	grid-template-rows: auto auto;
+	gap: var(--col-gap);
+	padding: var(--col-gap) 0;
+}
+
+.form label {
+	display: block;
+	width: var(--col);
+	flex-shrink: 0;
+}
+
+.form input {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.form input, .form button {
+	display: inline-block;
+	box-sizing: border-box;
+	font-size: inherit;
+	font-family: inherit;
+}
+
+.form button {
+	display: flex;
+	align-items: center;
+}

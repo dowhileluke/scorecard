@@ -1,16 +1,16 @@
-.container {
+.editable {
 	cursor: pointer;
 }
 
-.mid {
-	grid-column-start: 2;
-}
-
-.container svg {
-	display: block;
+.icon {
 	visibility: hidden;
+	justify-content: center;
 }
 
-.container:hover svg {
+.editable:hover > :first-child {
+	opacity: 0.25;
+}
+
+.editable:hover .icon {
 	visibility: visible;
 }

@@ -1,8 +1,0 @@
-.container, .item {
-	margin: 0 auto;
-}
-
-.item:not(:last-child) {
-	color: var(--gray);
-	text-decoration: line-through;
-}
