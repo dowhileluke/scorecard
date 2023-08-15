@@ -4,11 +4,13 @@
 
 .icon {
 	visibility: hidden;
+	display: flex;
+	align-items: center;
 	justify-content: center;
 }
 
 .editable:hover > :first-child {
-	opacity: 0.25;
+	opacity: 0.2;
 }
 
 .editable:hover .icon {

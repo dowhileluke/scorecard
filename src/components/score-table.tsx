@@ -10,10 +10,10 @@ type ScoreTableProps = {
 }
 
 export function ScoreTable({ points, onClick }: ScoreTableProps) {
-	const totalRef = useRef<HTMLDivElement>(null)
+	const sumRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
-		totalRef.current?.scrollIntoView(false)
+		sumRef.current?.scrollIntoView(false)
 	}, [points])
 
 	return (
@@ -23,7 +23,7 @@ export function ScoreTable({ points, onClick }: ScoreTableProps) {
 					{signed(s)}
 				</Editable>
 			))}
-			<div ref={totalRef} className={points.length ? classes.sum : ''}>
+			<div ref={sumRef} className={points.length ? classes.sum : ''}>
 				{sum(points)}
 			</div>
 		</div>
