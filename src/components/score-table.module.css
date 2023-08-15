@@ -4,9 +4,10 @@
 
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 }
 
-.container div:not(:last-child) {
+.container :not(:last-child) {
 	color: var(--gray);
 }
 

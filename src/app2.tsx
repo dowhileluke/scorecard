@@ -9,7 +9,7 @@ import { Edit2, Plus } from 'react-feather'
 import { IntegerInput } from './components/integer-input'
 import { sum } from '@dowhileluke/fns'
 import { ScoreTable } from './components/score-table'
-import { Overlap } from './components/overlap'
+import { Overlap } from './components/stack'
 
 function initializeScores(players: Player[]) {
 	const result: ScoreState = {}

@@ -32,11 +32,13 @@ export function App() {
 				<div className="col-group">
 					{players.map(p => (
 						<div key={p.id} className="app-col" style={{ flexShrink: p.name.length }}>
-							<Editable2 value={p.name} className="label" />
+							<Editable2 value={p.name} className="label m0a" />
 							<ScoreTable points={points[p.id]} />
 							{/* <div style={{ width: '6ch', height: '1ch', background: 'red' }} /> */}
-							<div>
+							<div className="score m0a">
+								<div className="mini label">{p.name}</div>
 								<IntegerInput
+									className="score"
 									value={pending[p.id] ?? null}
 									onChange={n => setPending(prev => ({ ...prev, [p.id]: n }))}
 								/>

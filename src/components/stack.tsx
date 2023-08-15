@@ -1,16 +1,16 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react'
-import classes from './overlap.module.css'
+import classes from './stack.module.css'
 import { merge } from '../functions/merge';
 
-type OverlapProps = {
+type StackProps = {
 	over?: ReactNode;
 }
 
-export function Overlap({
+export function Stack({
 	over, className, children, ...props
-}: OverlapProps & ComponentPropsWithoutRef<'div'>) {
+}: StackProps & ComponentPropsWithoutRef<'div'>) {
 	return (
-		<div className={merge(classes.container, className)} {...props}>
+		<div className={merge(classes.stack, className)} {...props}>
 			<div className={classes.under}>{children}</div>
 			<div className={classes.over}>{over}</div>
 		</div>

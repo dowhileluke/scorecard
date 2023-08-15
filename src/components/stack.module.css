@@ -1,4 +1,4 @@
-.container {
+.stack {
 	display: inline-grid;
 	cursor: pointer;
 }
@@ -7,20 +7,22 @@
 	grid-area: 1 / 1 / 2 / 2;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	width: 100%;
+	overflow: hidden;
 }
 
 .over {
+	justify-content: center;
 	visibility: hidden;
 	z-index: 1;
 }
 
-.container:hover .under {
+.stack:hover .under {
 	transition-property: opacity;
 	animation: pulse 2s infinite;
 }
 
-.container:hover .over {
+.stack:hover .over {
 	visibility: visible;
 }
 
