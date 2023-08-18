@@ -1,6 +1,5 @@
 import { UserPlus, Settings } from 'react-feather'
 import { Button } from './primitives/interactive'
-import classes from './action-buttons.module.css'
 
 type ActionButtonsProps = {
 	onAdd: () => void;
