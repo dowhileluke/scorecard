@@ -41,7 +41,7 @@ export function PointsForm({ players, onSubmit, placeholder, children }: PropsWi
 			</div>
 			<div className="col-group">
 				{children}
-				<Button type="submit" disabled={!delta} tabIndex={1}>
+				<Button type="submit" disabled={!delta} variant="success" tabIndex={1}>
 					Submit {sum} {delta !== Math.abs(sum) && (<>(&plusmn;{delta})</>)} {delta === 1 ? 'point' : 'points'}
 				</Button>
 			</div>

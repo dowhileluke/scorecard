@@ -1,12 +1,21 @@
-import { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, forwardRef } from 'react'
 import { concat } from '../../functions/concat'
 import classes from './interactive.module.css'
 
-export function Button({ className, ...props }: ComponentPropsWithoutRef<'button'>) {
+type Variant = {
+	variant?: 'none' | 'danger' | 'success'
+}
+
+export function Button({ variant = 'none', className, ...props }: Variant & ComponentPropsWithoutRef<'button'>) {
 	return (
 		<button
 			type="button"
-			className={concat('centered', classes.button, className)}
+			className={concat(
+				'centered',
+				classes.button,
+				className,
+				classes[variant],
+			)}
 			{...props}
 		/>
 	)

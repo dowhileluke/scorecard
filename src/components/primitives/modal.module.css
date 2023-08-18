@@ -45,6 +45,5 @@
 
 .title {
 	margin: 0;
-	/* font-family: var(--font-plus); */
-	/* font-size: 200%; */
+	font-family: var(--font-plus);
 }

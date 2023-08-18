@@ -1,5 +1,12 @@
 :root {
-	--red: #6b0504;
+	--red1: #6b0504;
+	--red2: #c0110e;
+	--orange: #f38918;
+	--teal1: #05A3B4;
+	--teal2: #08d4eb;
+	--pink: #DC1080;
+	--purple1: #5b0db9;
+	--purple2: #8143cc;
 	--black: #333;
 	--gray: #999;
 	--white: white;
@@ -7,6 +14,10 @@
 	--text: var(--black);
 	--body: var(--white);
 	--darken: rgba(0, 0, 0, 0.7);
+	--success1: var(--teal1);
+	--success2: var(--teal2);
+	--danger1: var(--purple1);
+	--danger2: var(--purple2);
 
 	--spacing: 0.5rem;
 	--max-width: 800px;

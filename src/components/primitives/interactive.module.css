@@ -7,18 +7,44 @@
 	background-color: inherit;
 	font-weight: normal;
 	border: 1px solid currentColor;
-	padding: 0.2em 0.4em;
+	padding: 0.3em 0.6em;
+}
+
+.button:focus, .input:focus, .button:focus-visible, .input:focus-visible {
+	outline: none;
+	box-shadow: 0 0 1px 2px var(--success2);
 }
 
 .button {
 	gap: 0.3em;
 	border-radius: 0.5em;
 	cursor: pointer;
+	transition: background-color 150ms;
 }
 
 .button:disabled {
 	opacity: 0.5;
 	cursor: default;
+}
+
+.danger {
+	background-color: var(--danger1);
+	color: var(--white);
+	border: none;
+}
+
+.danger:hover:not(:disabled) {
+	background-color: var(--danger2);
+}
+
+.success {
+	background-color: var(--success1);
+	color: var(--white);
+	border: none;
+}
+
+.success:hover:not(:disabled) {
+	background-color: var(--success2);
 }
 
 .input[type=text] {

@@ -45,7 +45,7 @@ export function FormModal({
 			{children}
 			<div className={classes.actions}>
 				{onDestroy && (
-					<Button onClick={handleDestroy}>
+					<Button onClick={handleDestroy} variant="danger">
 						<DIcon size="1em" />
 						{' '}
 						{destroyLabel}
@@ -53,7 +53,9 @@ export function FormModal({
 				)}
 				<div className="spacer" />
 				{!isCancelHidden && (<Button onClick={onClose}>Cancel</Button>)}
-				<Button type="submit" disabled={isSubmitDisabled}>{submitLabel}</Button>
+				<Button type="submit" disabled={isSubmitDisabled} variant="success">
+					{submitLabel}
+				</Button>
 			</div>
 		</Modal>
 	)
