@@ -2,15 +2,17 @@ import { FormEvent, PropsWithChildren } from 'react'
 import { useForm } from '../hooks/use-form'
 import { FormState, Player } from '../types'
 import { IntegerInput } from './integer-input'
-import classes from './form.module.css'
+import classes from './points-form.module.css'
 import { sumAndDelta } from '../functions/sum-and-delta'
+import { Button } from './primitives/interactive'
 
 type FormProps = {
 	players: Player[];
 	onSubmit: (values: FormState) => void;
+	placeholder?: string;
 }
 
-export function Form({ players, onSubmit, children }: PropsWithChildren<FormProps>) {
+export function PointsForm({ players, onSubmit, placeholder, children }: PropsWithChildren<FormProps>) {
 	const [values, setValue, resetValues] = useForm(players)
 	const [sum, delta] = sumAndDelta(players, values)
 
@@ -26,19 +28,20 @@ export function Form({ players, onSubmit, children }: PropsWithChildren<FormProp
 			<div className="col-group">
 				{players.map(p => (
 					<label key={p.id}>
-						<div className="fancy trim">{p.name}</div>
+						<div className="label-text trim">{p.name}</div>
 						<IntegerInput
 							value={values[p.id] ?? null}
 							onChange={n => setValue(p.id, n)}
+							placeholder={placeholder}
 						/>
 					</label>
 				))}
 			</div>
 			<div className="col-group">
 				{children}
-				<button type="submit" disabled={!delta}>
+				<Button type="submit" disabled={!delta}>
 					Submit {sum} {delta !== Math.abs(sum) && (<>(&plusmn;{delta})</>)} {delta === 1 ? 'point' : 'points'}
-				</button>
+				</Button>
 			</div>
 		</form>
 	)

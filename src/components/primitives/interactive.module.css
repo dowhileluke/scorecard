@@ -1,0 +1,27 @@
+.button, .input {
+	box-sizing: border-box;
+	font-size: inherit;
+	font-family: inherit;
+	color: inherit;
+	background-color: inherit;
+	font-weight: normal;
+	border: 1px solid currentColor;
+	padding: 0.2em 0.4em;
+}
+
+.button {
+	gap: 0.3em;
+	border-radius: 0.5em;
+	cursor: pointer;
+}
+
+.button:disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+
+.input[type=text] {
+	display: block;
+	width: 100%;
+	border-radius: 0.2em;
+}

@@ -15,3 +15,20 @@ export type Player = {
 }
 export type ScoreState = Record<PlayerId, number[]>
 export type FormState = Record<PlayerId, number | null | undefined>
+export type Config = {
+	submitNulls: boolean;
+	persistScores: boolean;
+}
+
+export type GameState = {
+	players: Player[];
+	scores: ScoreState;
+	config: Config;
+}
+
+export type ModalState =
+	| { mode: 'IDLE' }
+	| { mode: 'ADD' }
+	| { mode: 'EDIT', player: Player }
+	| { mode: 'AMEND', player: Player, index: number }
+	| { mode: 'CONFIG' }

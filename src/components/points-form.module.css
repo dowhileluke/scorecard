@@ -1,0 +1,12 @@
+.form {
+	display: grid;
+	grid-template-rows: auto auto;
+	gap: var(--gap);
+	padding: var(--gap) 0;
+}
+
+.form label {
+	display: block;
+	width: var(--col);
+	flex-shrink: 0;
+}

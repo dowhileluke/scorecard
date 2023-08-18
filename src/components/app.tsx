@@ -1,75 +1,68 @@
-import { useState } from 'react'
+import { Settings, UserPlus } from 'react-feather'
 import { concat } from '../functions/concat'
-import { usePlayers } from '../hooks/use-players'
-import { FormState, Player, ScoreState } from '../types'
-import classes from './app.module.css'
-import { ScoreTable } from './score-table'
-import { UserPlus } from 'react-feather'
+import { useGameState } from '../hooks/use-game-state'
+import { useModalState } from '../hooks/use-modal-state'
 import { Editable } from './editable'
-import { Form } from './form'
-
-function initializeScores(players: Player[]) {
-	const result: ScoreState = {}
-
-	for (const p of players) {
-		result[p.id] = []
-	}
-
-	return result
-}
+import { ScoreTable } from './score-table'
+import { PointsForm } from './points-form'
+import { Button } from './primitives/interactive'
+import classes from './app.module.css'
+import { ConfigModal } from './modals/config-modal'
+import { EditPlayerModal } from './modals/edit-player-modal'
+import { AmendPointsModal } from './modals/amend-points-modal'
+import { AddPlayerModal } from './modals/add-player-modal'
 
 export function App() {
-	const [players, setPlayers] = usePlayers()
-	const [scores, setScores] = useState(() => initializeScores(players))
-
-	function handleSubmit(values: FormState) {
-		setScores(prev => {
-			const result: ScoreState = {}
-
-			for (const { id } of players) {
-				const existing = prev[id]
-				const incoming = values[id]
-
-				result[id] = typeof incoming === 'number' ? existing.concat(incoming) : existing
-			}
-
-			return result
-		})
-	}
+	const [gameState, game] = useGameState()
+	const [modalState, setMode] = useModalState()
 
 	return (
-		<div className={concat(classes.app, 'viewport-height')}>
+		<div className="viewport-height app">
 			<div className="col-group trim">
-				{players.map((p, i) => (
+				{gameState.players.map(p => (
 					<div key={p.id} className="app-col" style={{ flexShrink: p.name.length }}>
-						<Editable className="mza heading" onClick={() => alert(i)}>
+						<Editable className="mza heading" onClick={() => setMode.editPlayer(p)}>
 							<div className={concat('fancy', p.name.length < 3 && 'brief')}>
-								{p.name}	
+								{p.name}
 							</div>
 						</Editable>
-						{/* <div className="stack oh mza">
-							<div className="under label">
-								<div className="label">
-									{i ? (
-										<>{'dg'.repeat(i + 1)} {'i'.repeat(i + 1)}</>
-									) : (
-										'H'
-									)}
-								</div>
-							</div>
-							<div className="over">
-								<Edit2 />
-							</div>
-						</div> */}
-						<ScoreTable points={scores[p.id]} onClick={(idx) => alert('index: ' + idx)}/>
+						<ScoreTable points={gameState.scores[p.id]} onClick={index => setMode.amendScore(p, index)}/>
 					</div>
 				))}
 			</div>
-			<Form players={players} onSubmit={handleSubmit}>
-				<button>
+			<PointsForm players={gameState.players} onSubmit={game.updateScores} placeholder={gameState.config.submitNulls ? '0' : ''}>
+				<Button onClick={setMode.addPlayer}>
 					<UserPlus size="1em" />
-				</button>
-			</Form>
+				</Button>
+				<Button onClick={setMode.config}>
+					<Settings size="1em" />
+				</Button>
+			</PointsForm>
+
+			<AddPlayerModal
+				state={modalState}
+				onClose={setMode.idle}
+				onSubmit={game.addPlayer}
+			/>
+			<EditPlayerModal
+				state={modalState}
+				onClose={setMode.idle}
+				onSubmit={game.updatePlayer}
+				onDelete={game.deletePlayer}
+			/>
+			<AmendPointsModal
+				state={modalState}
+				scores={gameState.scores}
+				onClose={setMode.idle}
+				onSubmit={game.amendScore}
+			/>
+			<ConfigModal
+				state={modalState}
+				values={gameState.config}
+				onChange={game.setConfig}
+				onDone={setMode.idle}
+				onReset={game.resetScores}
+			/>
 		</div>
 	)
 }
