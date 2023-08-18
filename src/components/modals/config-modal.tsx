@@ -39,7 +39,7 @@ export function ConfigModal({ state, values, onChange, onReset, onDone }: Config
 						type="checkbox"
 						checked={values.submitNulls}
 						onChange={e => handleChange({ submitNulls: e.target.checked })}
-					/> Submit 0 points when blank
+					/> Blanks become zeroes (+0) on submit
 				</label>
 			</div>
 			<div>
@@ -48,7 +48,7 @@ export function ConfigModal({ state, values, onChange, onReset, onDone }: Config
 						type="checkbox"
 						checked={values.persistScores}
 						onChange={e => handleChange({ persistScores: e.target.checked })}
-					/> Persist scores after exiting
+					/> Restore scores when the app reloads
 				</label>
 			</div>
 		</FormModal>
