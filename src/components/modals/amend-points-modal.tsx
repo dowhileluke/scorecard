@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { ModalState, PlayerId, ScoreState } from '../../types'
+import { clamp } from '../../functions/clamp';
 import { useDraftState } from '../../hooks/use-draft-state'
 import { IntegerInput } from '../integer-input'
 import { FormModal } from './form-modal'
@@ -44,7 +45,7 @@ export function AmendPointsModal({ state, scores, onClose, onSubmit }: AmendPoin
 			isQuickDestroy
 			isSubmitDisabled={value === null}
 		>
-			<IntegerInput ref={ref} value={value} onChange={setValue} />
+			<IntegerInput ref={ref} value={value} onChange={n => setValue(clamp(n))} />
 		</FormModal>
 	)
 }

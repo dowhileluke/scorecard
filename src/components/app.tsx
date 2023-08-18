@@ -6,11 +6,11 @@ import { Editable } from './editable'
 import { ScoreTable } from './score-table'
 import { PointsForm } from './points-form'
 import { Button } from './primitives/interactive'
-import classes from './app.module.css'
 import { ConfigModal } from './modals/config-modal'
 import { EditPlayerModal } from './modals/edit-player-modal'
 import { AmendPointsModal } from './modals/amend-points-modal'
 import { AddPlayerModal } from './modals/add-player-modal'
+import { ActionButtons } from './action-buttons'
 
 export function App() {
 	const [gameState, game] = useGameState()
@@ -30,14 +30,15 @@ export function App() {
 					</div>
 				))}
 			</div>
-			<PointsForm players={gameState.players} onSubmit={game.updateScores} placeholder={gameState.config.submitNulls ? '0' : ''}>
-				<Button onClick={setMode.addPlayer}>
-					<UserPlus size="1em" />
-				</Button>
-				<Button onClick={setMode.config}>
-					<Settings size="1em" />
-				</Button>
-			</PointsForm>
+			<div className="col-group">
+				<PointsForm
+					players={gameState.players}
+					onSubmit={game.updateScores}
+					placeholder={gameState.config.submitNulls ? '0' : ''}
+				>
+					<ActionButtons onAdd={setMode.addPlayer} onConfig={setMode.config} />
+				</PointsForm>
+			</div>
 
 			<AddPlayerModal
 				state={modalState}

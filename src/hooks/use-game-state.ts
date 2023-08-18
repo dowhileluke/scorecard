@@ -23,7 +23,7 @@ function getInitialScores({ players = DEFAULT_PLAYERS, scores }: Partial<GameSta
 
 const INITIAL_STATE: GameState = {
 	players: DEFAULT_PLAYERS,
-	config: { submitNulls: false, persistScores: false },
+	config: { submitNulls: true, persistScores: true },
 	...PERSISTED_STATE,
 	scores: getInitialScores(PERSISTED_STATE),
 }

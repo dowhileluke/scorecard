@@ -17,6 +17,8 @@ export const Input = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<'inpu
 		ref={fwdRef}
 		className={concat(classes.input, className)}
 		type="text"
+		autoComplete="off"
+		name="search" // ios safari hack
 		{...props}
 	/>
 ))

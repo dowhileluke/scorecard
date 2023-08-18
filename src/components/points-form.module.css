@@ -10,3 +10,7 @@
 	width: var(--col);
 	flex-shrink: 0;
 }
+
+.form [type=submit] {
+	min-width: 180px;
+}

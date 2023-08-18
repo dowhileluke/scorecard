@@ -1,0 +1,6 @@
+.act {
+	display: flex;
+	justify-content: end;
+	flex-direction: column;
+	gap: var(--gap);
+}
