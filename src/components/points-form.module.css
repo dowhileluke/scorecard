@@ -12,5 +12,5 @@
 }
 
 .form [type=submit] {
-	min-width: 180px;
+	min-width: 20ch;
 }

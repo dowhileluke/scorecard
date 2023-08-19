@@ -33,12 +33,18 @@
 	--fancy-pad: 0.2em;
 }
 
+@media (min-width: 1024px) {
+	:root {
+		--base-size: 20px;
+	}
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    --text: var(--white);
-    --body: var(--black);
+	:root {
+		--text: var(--white);
+		--body: var(--black);
 		--darken: rgba(255, 255, 255, 0.5);
-  }
+	}
 }
 
 body {

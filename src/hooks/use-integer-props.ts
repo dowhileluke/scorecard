@@ -8,17 +8,20 @@ export type IntegerProps = {
 type InputProps = {
 	value: string;
 	onChange: ChangeEventHandler<HTMLInputElement>;
-	inputMode: 'numeric';
+	inputMode: 'decimal';
 }
 
-const nonDigits = /\D/g
+const NON_DIGITS = /\D/g
+const DECIMAL_DIVIDER = (0.1).toLocaleString().charAt(1) // enables negative values with decimal keyboard
+const NEGATIVE_SYMBOLS = ['-', DECIMAL_DIVIDER, '(']
 
 function toDigits(s: string) {
-	const isNegative = s.charAt(0) === '-'
+	const isNegative = s.startsWith('-')
 	const text = isNegative ? s.slice(1) : s
-	const digits = text.replace(nonDigits, '')
-	
-	return isNegative ? '-' + digits : digits
+	const isInverted = NEGATIVE_SYMBOLS.some(sym => text.includes(sym))
+	const digits = s.replace(NON_DIGITS, '')
+
+	return isNegative !== isInverted ? '-' + digits : digits
 }
 
 function toTextValue(n: number | null, isNakedMinus: boolean) {
@@ -45,7 +48,7 @@ export function useIntegerProps<T extends IntegerProps>({ value, onChange, ...pr
 		...props,
 		value: toTextValue(value, isNakedMinus),
 		onChange: handleChange,
-		inputMode: 'numeric',
+		inputMode: 'decimal',
 	}
 
 	return result

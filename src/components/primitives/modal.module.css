@@ -38,7 +38,7 @@
 	margin: var(--gap);
 	padding: var(--gap);
 	background-color: var(--body);
-	border-radius: 8px;
+	border-radius: 0.5em;
 	max-width: 640px;
 	z-index: 1;
 }
