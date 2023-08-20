@@ -70,7 +70,7 @@ export function ManagePlayersModal({ state, players, onSubmit, onClose }: Manage
 		}
 	}
 
-	const toggleButton = (
+	const toggleButton = players.length > 0 && (
 		<Button
 			onClick={handleToggle}
 			className={concat(classes.toggler, deletingCount && classes.deleting)}
