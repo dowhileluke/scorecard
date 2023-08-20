@@ -106,8 +106,16 @@ body {
 	align-items: center;
 }
 
-.heading {
+.empty-col {
+	flex-direction: column;
+	gap: var(--gap);
+}
+
+.font-2x {
 	font-size: 200%;
+}
+
+.underline {
 	text-decoration: underline;
 }
 
