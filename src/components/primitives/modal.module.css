@@ -44,6 +44,13 @@
 }
 
 .title {
+	display: flex;
+	align-items: baseline;
+	gap: var(--gap);
+}
+
+.title h2 {
 	margin: 0;
 	font-family: var(--font-plus);
+	flex-grow: 1;
 }

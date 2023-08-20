@@ -23,6 +23,9 @@ export function useModalState() {
 		config() {
 			setState({ mode: 'CONFIG' })
 		},
+		manage() {
+			setState({ mode: 'MANAGE' })
+		},
 	})
 
 	return [state, actions] as const

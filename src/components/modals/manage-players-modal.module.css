@@ -1,0 +1,51 @@
+.toggler {
+	font-size: 70%;
+}
+
+.list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+}
+
+.list button {
+	width: auto;
+	max-width: 20ch;
+	white-space: nowrap;
+	overflow: hidden;
+	justify-content: start;
+}
+
+.list button svg {
+	flex-shrink: 0;
+}
+
+.existing {
+	color: var(--success1);
+}
+
+.deleting {
+	color: var(--gray);
+	border-style: dashed;
+}
+
+.adding {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	max-width: 16ch;
+}
+
+.adding button {
+	border-end-end-radius: 0;
+	border-start-end-radius: 0;
+	margin-inline-end: -1px;
+}
+
+.adding input[type=text] {
+	border-end-start-radius: 0;
+	border-start-start-radius: 0;
+
+	/* copy button radius */
+	border-end-end-radius: 0.5em;
+	border-start-end-radius: 0.5em;
+}

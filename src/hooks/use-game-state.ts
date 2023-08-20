@@ -1,9 +1,10 @@
 import { useEffect, useRef } from 'react'
-import { FormState, GameState, Player, PlayerId, ScoreState } from '../types'
+import { FormState, GameState, ManageFormState, Player, PlayerId, ScoreState } from '../types'
 import { getPersistedState, setPersistedState } from '../functions/persist'
 import { useForever } from './use-forever'
 import { useCollection } from './use-collection'
 import { mutateAtIndex } from '../functions/array'
+import { truthy } from '@dowhileluke/fns'
 
 const PERSISTED_STATE = getPersistedState()
 const DEFAULT_PLAYERS: Player[] = [
@@ -29,6 +30,10 @@ const INITIAL_STATE: GameState = {
 }
 const EMPTY_SCORES: ScoreState = {}
 
+function getNextId(players: Player[]) {
+	return 1 + players.reduce((maxId, p) => p.id > maxId ? p.id : maxId, 0)
+}
+
 export function useGameState() {
 	const isDirtyRef = useRef(false)
 	const [state, set, setState] = useCollection(INITIAL_STATE)
@@ -49,7 +54,7 @@ export function useGameState() {
 	const actions = useForever({
 		addPlayer(name: string) {
 			setState(prev => {
-				const id = 1 + prev.players.reduce((maxId, p) => p.id > maxId ? p.id : maxId, 0)
+				const id = getNextId(prev.players)
 
 				return {
 					...prev,
@@ -63,6 +68,27 @@ export function useGameState() {
 		},
 		deletePlayer(id: PlayerId) {
 			set.players(prev => prev.filter(p => p.id !== id))
+		},
+		updateManyPlayers({ deletedIds, addedNames }: ManageFormState, isFullReset: boolean) {
+			setState(prev => {
+				const remainingPlayers = prev.players.filter(p => !deletedIds[p.id])
+				const nextId = getNextId(remainingPlayers)
+				const addedPlayers = truthy(addedNames).map((name, i) => ({ id: nextId + i, name }))
+				const players = remainingPlayers.concat(addedPlayers)
+				const scores: ScoreState = {}
+
+				for (const { id } of players) {
+					const existing = prev.scores[id]
+
+					scores[id] = (isFullReset || deletedIds[id] || !existing) ? [] : existing
+				}
+
+				return {
+					...prev,
+					players,
+					scores,
+				}
+			})
 		},
 		updateScores(points: FormState) {
 			setState(prev => {

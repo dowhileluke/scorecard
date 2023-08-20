@@ -12,7 +12,7 @@ type Actions = {
 	isCancelHidden?: boolean;
 	submitLabel?: string;
 	destroyLabel?: string;
-	destroyIcon?: Icon;
+	destroyIcon?: Icon | null;
 	isQuickDestroy?: boolean;
 	destroyQuestion?: string;
 }
@@ -46,7 +46,7 @@ export function FormModal({
 			<div className={classes.actions}>
 				{onDestroy && (
 					<Button onClick={handleDestroy} variant="danger">
-						<DIcon size="1em" />
+						{DIcon && (<DIcon size="1em" />)}
 						{' '}
 						{destroyLabel}
 					</Button>

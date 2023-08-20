@@ -7,8 +7,8 @@ import { PointsForm } from './points-form'
 import { ConfigModal } from './modals/config-modal'
 import { EditPlayerModal } from './modals/edit-player-modal'
 import { AmendPointsModal } from './modals/amend-points-modal'
-import { AddPlayerModal } from './modals/add-player-modal'
 import { ActionButtons } from './action-buttons'
+import { ManagePlayersModal } from './modals/manage-players-modal'
 
 export function App() {
 	const [gameState, game] = useGameState()
@@ -34,15 +34,13 @@ export function App() {
 					onSubmit={game.updateScores}
 					placeholder={gameState.config.submitNulls ? '0' : ''}
 				>
-					<ActionButtons onAdd={setMode.addPlayer} onConfig={setMode.config} />
+					<ActionButtons
+						onConfig={setMode.config}
+						onManage={setMode.manage}
+					/>
 				</PointsForm>
 			</div>
 
-			<AddPlayerModal
-				state={modalState}
-				onClose={setMode.idle}
-				onSubmit={game.addPlayer}
-			/>
 			<EditPlayerModal
 				state={modalState}
 				onClose={setMode.idle}
@@ -61,6 +59,12 @@ export function App() {
 				onChange={game.setConfig}
 				onDone={setMode.idle}
 				onReset={game.resetScores}
+			/>
+			<ManagePlayersModal
+				state={modalState}
+				players={gameState.players}
+				onSubmit={game.updateManyPlayers}
+				onClose={setMode.idle}
 			/>
 		</div>
 	)

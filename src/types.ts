@@ -26,9 +26,15 @@ export type GameState = {
 	config: Config;
 }
 
+export type ManageFormState = {
+	deletedIds: Record<PlayerId, boolean | undefined>;
+	addedNames: string[];
+}
+
 export type ModalState =
 	| { mode: 'IDLE' }
 	| { mode: 'ADD' }
 	| { mode: 'EDIT', player: Player }
 	| { mode: 'AMEND', player: Player, index: number }
 	| { mode: 'CONFIG' }
+	| { mode: 'MANAGE' }

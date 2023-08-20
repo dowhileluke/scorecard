@@ -11,3 +11,11 @@ export function mutateAtIndex<T>(array: T[], index: number, value: T | null) {
 
 	return updateAtIndex(array, index, value)
 }
+
+export function toggleInclusion<T>(array: T[], item: T) {
+	const filtered = array.filter(x => x !== item)
+
+	if (filtered.length !== array.length) return filtered
+
+	return array.concat(item)
+}

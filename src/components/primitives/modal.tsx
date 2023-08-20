@@ -7,10 +7,11 @@ export type ModalProps = {
 	onClose: () => void;
 	title: string;
 	onSubmit?: (e: FormEvent) => void;
+	headerNode?: ReactNode;
 	children?: ReactNode;
 }
 
-export function Modal({ isOpen, onClose, title, onSubmit, children }: ModalProps) {
+export function Modal({ isOpen, onClose, title, onSubmit, headerNode, children }: ModalProps) {
 	const fullscreen = `viewport-height ${classes.full} centered`
 
 	return (
@@ -42,9 +43,12 @@ export function Modal({ isOpen, onClose, title, onSubmit, children }: ModalProps
 					leaveTo={classes.start}
 				>
 					<Dialog.Panel as={onSubmit ? 'form' : 'div'} onSubmit={onSubmit} className={`mza ${classes.panel}`}>
-						<Dialog.Title className={classes.title}>
-							{title}
-						</Dialog.Title>
+						<div className={classes.title}>
+							<Dialog.Title>
+								{title}
+							</Dialog.Title>
+							{headerNode}
+						</div>
 						{children}
 					</Dialog.Panel>
 				</Transition.Child>
