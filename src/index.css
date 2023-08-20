@@ -56,6 +56,10 @@ body {
 	line-height: var(--base-height);
 }
 
+.fix line {
+	shape-rendering: crispEdges;
+}
+
 .darken {
 	background-color: var(--darken);
 }

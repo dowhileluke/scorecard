@@ -121,7 +121,7 @@ export function ManagePlayersModal({ state, players, onSubmit, onClose }: Manage
 						/>
 					</div>
 				))}
-				<Button onClick={form.addOne}>
+				<Button onClick={form.addOne} className="fix">
 					<UserPlus size="1.25em" />
 				</Button>
 			</div>
