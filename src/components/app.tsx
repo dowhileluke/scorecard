@@ -32,7 +32,7 @@ export function App() {
 				{gameState.players.length === 0 && (
 					<div className="empty-col centered">
 						<div className="fancy font-2x">Nobody is here...</div>
-						<Button onClick={setMode.manage}>
+						<Button variant="success" onClick={setMode.manage}>
 							<Users size="1.25em" /> Add Players
 						</Button>
 						<div>and get the party started!</div>
