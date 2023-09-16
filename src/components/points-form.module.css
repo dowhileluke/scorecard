@@ -6,7 +6,7 @@
 }
 
 @supports (padding: max(0px)) {
-	.tableau {
+	.form {
 		padding-bottom: max(var(--gap), env(safe-area-inset-bottom));
 	}
 }
