@@ -5,6 +5,12 @@
 	padding: var(--gap) 0;
 }
 
+@supports (padding: max(0px)) {
+	.tableau {
+		padding-bottom: max(var(--gap), env(safe-area-inset-bottom));
+	}
+}
+
 .form label {
 	display: block;
 	width: var(--col);

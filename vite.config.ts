@@ -13,6 +13,7 @@ export default defineConfig({
         name: 'Scorecard',
         short_name: 'Scorecard',
         description: 'A simple score tracker',
+        theme_color: 'white',
         background_color: 'white',
         icons: [
           {
