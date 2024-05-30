@@ -1,4 +1,6 @@
 :root {
+	-webkit-text-size-adjust: 100%;
+
 	--red1: #6b0504;
 	--red2: #c0110e;
 	--orange: #f38918;

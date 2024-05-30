@@ -26,7 +26,11 @@ export function App() {
 								{p.name}
 							</div>
 						</Editable>
-						<ScoreTable points={gameState.scores[p.id]} onClick={index => setMode.amendScore(p, index)}/>
+						<ScoreTable
+							points={gameState.scores[p.id]}
+							onClick={index => setMode.amendScore(p, index)}
+							showRunning={gameState.config.showRunningTotals}
+						/>
 					</div>
 				))}
 				{gameState.players.length === 0 && (

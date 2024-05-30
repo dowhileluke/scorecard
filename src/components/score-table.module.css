@@ -5,9 +5,19 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	scrollbar-width: none;
 }
 
-.list :not(:last-child) {
+.list::-webkit-scrollbar { 
+    display: none;
+}
+
+.list div {
+	transition: color 200ms ease-in-out;
+}
+
+.list > :not(:last-child) {
 	color: var(--gray);
 }
 

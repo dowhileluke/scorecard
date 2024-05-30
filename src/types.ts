@@ -18,6 +18,7 @@ export type FormState = Record<PlayerId, number | null | undefined>
 export type Config = {
 	submitNulls: boolean;
 	persistScores: boolean;
+	showRunningTotals: boolean;
 }
 
 export type GameState = {

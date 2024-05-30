@@ -51,6 +51,15 @@ export function ConfigModal({ state, values, onChange, onReset, onDone }: Config
 					/> Restore scores when the app reloads
 				</label>
 			</div>
+			<div>
+				<label>
+					<Input
+						type="checkbox"
+						checked={values.showRunningTotals}
+						onChange={e => handleChange({ showRunningTotals: e.target.checked })}
+					/> Include running totals
+				</label>
+			</div>
 		</FormModal>
 	)
 }
